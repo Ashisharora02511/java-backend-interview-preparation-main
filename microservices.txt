@@ -1,0 +1,87 @@
+========================
+
+
+
+ What are Microservices?
+ - Microservices is an architectural style where a large application is divided into small, independently deployable services, with each service responsible for a specific business capability. Services communicate with each other using synchronous protocols like REST or asynchronous messaging systems like Kafka. Each service can be independently developed, deployed and scaled.
+ - Why do we use Microservices?
+ 1.Independent deployment
+ 2. Independent scaling
+ 3. Fault isolation
+    - One service failure doesn't necessarily bring down the whole system.
+ 5. Technology flexibility
+   - Different services can potentially use different technologies, although unnecessary polyglot complexity should be avoided.
+ - What are disadvantages of Microservices?
+ 1. Distributed system complexity
+ 2. Distributed transactions
+ 3. Monitoring becomes harder
+ 4. Deployment complexity
+ 5. Data consistency
+ 6. Network latency
+ - Q4. How do Microservices communicate?
+  - 1. Synchronous:Service A waits for Service B.
+  - 2. Asynchronous:Service A publishes an event and doesn't wait for the complete processing.
+ - When would you choose REST and when Kafka?
+ - I would use REST when the caller needs an immediate response or request-response interaction. I would use Kafka when I want asynchronous communication, loose coupling, event-driven processing, or multiple consumers to independently consume the same event."
+ - Q6. What happens if Service B is down?
+ - If a downstream service is unavailable, I would first configure a reasonable timeout. For transient failures, I may use limited retries with exponential backoff, provided the operation is safe to retry. I would use a circuit breaker to prevent repeated calls when the downstream service is consistently failing. For critical operations such as payments, I would also use idempotency to prevent duplicate processing."
+ - What is Circuit Breaker?:
+ Imagine Payment Service is continuously down.
+ Without circuit breaker:
+   Order → Payment ❌
+   Order → Payment ❌
+   Order → Payment ❌
+   Order → Payment ❌
+ We keep wasting resources.
+ Circuit breaker stops calling the failing service.
+ States:
+  CLOSED
+   |
+   | failures exceed threshold
+   ↓
+OPEN
+   |
+   | wait
+   ↓
+HALF_OPEN
+   |
+   | successful
+   ↓
+CLOSED
+CLOSED
+Normal requests.
+OPEN
+Requests fail fast; don't call downstream.
+HALF_OPEN
+Allow limited test requests.
+Circuit Breaker is a resilience pattern that prevents repeated calls to an unhealthy downstream service. It typically has Closed, Open and Half-Open states. When failures cross a threshold, the circuit opens and requests fail fast. After a recovery period, it moves to Half-Open to test whether the downstream service has recovered."
+
+- Retry vs Circuit Breaker?
+- Retry = temporary failure
+- "Retry is useful for transient failures, whereas a circuit breaker protects the system when failures are persistent."
+- "Idempotency means processing the same request multiple times should not produce unintended additional side effects. For example, for a payment API, I can accept an Idempotency-Key and store the processing result against that key. If the same key is received again, I return the previous result instead of charging the customer again."
+- What is an API Gateway?
+- API Gateway is the single entry point for external clients.
+-It can handle:
+- Request routing
+- Authentication/authorization
+- Rate limiting
+- SSL/TLS termination
+- Request/response filtering
+- Logging
+- Sometimes load balancing
+- API Gateway acts as a single entry point between clients and microservices. It handles concerns such as request routing, authentication, authorization, rate limiting and filtering, and forwards requests to the appropriate backend service.
+- What is Service Discovery?:Suppose Order Service wants to call Payment Service.
+- If we hardcode:
+http://192.168.1.50:8085/payment
+Payment service may have multiple instances:Instances can also change dynamically.
+So we need Service Discovery.
+- Service discovery allows microservices to dynamically find the network locations of other services instead of hardcoding hostnames or IP addresses. A service registers itself with a registry, and clients or infrastructure can discover healthy instances.
+3. Client-side vs Server-side Service Discovery
+4. What is Load Balancing?:"Load balancing distributes incoming requests across multiple instances of a service to improve availability, scalability and resource utilization."
+"You have 3 instances of Order Service. One instance goes down. What happens?"
+
+Good answer:
+"The load balancer or service-discovery mechanism should detect that the instance is unhealthy and stop routing traffic to it. Requests are then routed to healthy instances. Health checks are important for detecting unhealthy instances."
+- What is Config Server?
+  A centralized configuration server stores and provides externalized configuration for multiple microservices, allowing configuration to be managed consistently without hardcoding environment-specific values inside each service.

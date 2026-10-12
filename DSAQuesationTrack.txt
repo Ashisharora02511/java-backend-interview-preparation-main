@@ -1,0 +1,244 @@
+# DSA INTERVIEW PREPARATION TRACKER
+Target: Java Developer — 5+ Years Experience
+
+Status:
+[ ] Not Started
+[~] In Progress
+[x] Completed
+[R] Needs Revision
+
+Daily Target: 1–2 Questions
+Rule: Easy → Medium → Selected Advanced
+Language: Java
+
+==================================================
+PHASE 1: ARRAYS
+==================================================
+
+--- Easy ---
+
+[x] A01. Find the Second Largest Distinct Element
+[ ] A02. Find the Largest and Smallest Element
+[ ] A03. Reverse an Array
+[ ] A04. Find the Missing Number (1 to N)
+[ ] A05. Move All Zeros to the End
+[ ] A06. Remove Duplicates from a Sorted Array
+[ ] A07. Check if an Array Is Sorted
+[ ] A08. Find the Frequency of Each Element
+[ ] A09. Find the Union and Intersection of Two Arrays
+[ ] A10. Find Duplicate Elements in an Array
+
+--- Medium ---
+
+[ ] A11. Two Sum
+[ ] A12. Sort an Array of 0s, 1s and 2s
+[ ] A13. Merge Two Sorted Arrays
+[ ] A14. Maximum Subarray Sum (Kadane's Algorithm)
+[ ] A15. Best Time to Buy and Sell Stock
+[ ] A16. Majority Element
+[ ] A17. Find All Pairs with a Given Sum
+[ ] A18. Rearrange Positive and Negative Numbers
+[ ] A19. Product of Array Except Self
+[ ] A20. Rotate Array by K Positions
+
+--- Selected Advanced ---
+
+[ ] A21. Trapping Rain Water
+[ ] A22. Maximum Product Subarray
+[ ] A23. Subarray Sum Equals K
+[ ] A24. Merge Overlapping Intervals
+[ ] A25. Find the First Missing Positive
+
+==================================================
+PHASE 2: STRINGS
+==================================================
+
+--- Easy ---
+
+[ ] S01. Reverse a String
+[ ] S02. Check Palindrome
+[ ] S03. Check Whether Two Strings Are Anagrams
+[ ] S04. Count Character Frequencies
+[ ] S05. Find the First Non-Repeating Character
+[ ] S06. Find the First Repeated Character
+[ ] S07. Remove Duplicate Characters
+[ ] S08. Reverse Words in a Sentence
+[ ] S09. Find the Longest Word in a Sentence
+[ ] S10. Check String Rotation
+
+--- Medium ---
+
+[ ] S11. Longest Common Prefix
+[ ] S12. String Compression
+[ ] S13. Longest Substring Without Repeating Characters
+[ ] S14. Valid Parentheses
+[ ] S15. Group Anagrams
+[ ] S16. Longest Palindromic Substring
+[ ] S17. Count Substrings with a Given Property
+[ ] S18. Minimum Window Substring
+
+==================================================
+PHASE 3: HASHMAP AND HASHSET
+==================================================
+
+[ ] H01. Count Frequency Using HashMap
+[ ] H02. Find Duplicate Elements
+[ ] H03. Find the First Non-Repeating Element
+[ ] H04. Two Sum Using HashMap
+[ ] H05. Find Common Elements Between Arrays
+[ ] H06. Group Anagrams
+[ ] H07. Find the Longest Consecutive Sequence
+[ ] H08. Subarray Sum Equals K
+[ ] H09. Top K Frequent Elements
+[ ] H10. Longest Subarray with Sum K
+
+==================================================
+PHASE 4: TWO POINTERS
+==================================================
+
+[ ] T01. Check Palindrome Using Two Pointers
+[ ] T02. Two Sum in a Sorted Array
+[ ] T03. Remove Duplicates from Sorted Array
+[ ] T04. Move Zeros to the End
+[ ] T05. Squares of a Sorted Array
+[ ] T06. Container With Most Water
+[ ] T07. Three Sum
+[ ] T08. Four Sum (Selected Advanced)
+
+==================================================
+PHASE 5: SLIDING WINDOW
+==================================================
+
+[ ] W01. Maximum Sum of a Fixed-Size Subarray
+[ ] W02. Average of Every Window of Size K
+[ ] W03. Smallest Subarray with Sum at Least K
+[ ] W04. Longest Substring Without Repeating Characters
+[ ] W05. Longest Subarray with At Most K Distinct Values
+[ ] W06. Minimum Window Substring
+[ ] W07. Sliding Window Maximum
+
+==================================================
+PHASE 6: SORTING AND BINARY SEARCH
+==================================================
+
+[ ] B01. Binary Search
+[ ] B02. First and Last Occurrence of an Element
+[ ] B03. Search Insert Position
+[ ] B04. Search in a Rotated Sorted Array
+[ ] B05. Find Peak Element
+[ ] B06. Find Square Root Using Binary Search
+[ ] B07. Find Minimum in Rotated Sorted Array
+[ ] B08. Binary Search on Answer — Basic Problems
+
+==================================================
+PHASE 7: STACK AND QUEUE
+==================================================
+
+[ ] Q01. Implement Stack Using an Array
+[ ] Q02. Implement Queue Using an Array
+[ ] Q03. Valid Parentheses
+[ ] Q04. Next Greater Element
+[ ] Q05. Min Stack
+[ ] Q06. Implement Queue Using Two Stacks
+[ ] Q07. Daily Temperatures
+[ ] Q08. Largest Rectangle in Histogram
+
+==================================================
+PHASE 8: LINKED LIST
+==================================================
+
+[ ] L01. Create and Traverse a Linked List
+[ ] L02. Reverse a Linked List
+[ ] L03. Find the Middle Node
+[ ] L04. Detect a Cycle
+[ ] L05. Find the Start of a Cycle
+[ ] L06. Merge Two Sorted Linked Lists
+[ ] L07. Remove Nth Node from the End
+[ ] L08. Check Whether a Linked List Is a Palindrome
+
+==================================================
+PHASE 9: RECURSION AND BACKTRACKING
+==================================================
+
+[ ] R01. Print Numbers Using Recursion
+[ ] R02. Factorial and Sum of N Numbers
+[ ] R03. Reverse a String Using Recursion
+[ ] R04. Check Palindrome Using Recursion
+[ ] R05. Generate All Subsets
+[ ] R06. Generate All Permutations
+[ ] R07. Combination Sum
+[ ] R08. Word Search
+
+==================================================
+PHASE 10: TREES, BST AND HEAP
+==================================================
+
+[ ] TR01. Tree Traversals (Inorder, Preorder, Postorder)
+[ ] TR02. Level Order Traversal
+[ ] TR03. Find Maximum Depth of a Binary Tree
+[ ] TR04. Check Whether a Tree Is Balanced
+[ ] TR05. Validate a Binary Search Tree
+[ ] TR06. Lowest Common Ancestor
+[ ] TR07. Kth Largest Element
+[ ] TR08. Top K Frequent Elements Using Heap
+
+==================================================
+PHASE 11: GREEDY AND INTERVALS
+==================================================
+
+[ ] G01. Assign Cookies / Basic Greedy
+[ ] G02. Activity Selection
+[ ] G03. Merge Intervals
+[ ] G04. Non-Overlapping Intervals
+[ ] G05. Meeting Rooms
+[ ] G06. Jump Game
+
+==================================================
+PHASE 12: GRAPHS
+==================================================
+
+[ ] GR01. Graph Representation
+[ ] GR02. BFS Traversal
+[ ] GR03. DFS Traversal
+[ ] GR04. Number of Islands
+[ ] GR05. Detect a Cycle in a Graph
+[ ] GR06. Topological Sorting
+[ ] GR07. Shortest Path — BFS / Dijkstra Basics
+
+==================================================
+PHASE 13: DYNAMIC PROGRAMMING
+==================================================
+
+[ ] DP01. Climbing Stairs
+[ ] DP02. Fibonacci — Memoization vs Tabulation
+[ ] DP03. House Robber
+[ ] DP04. Coin Change
+[ ] DP05. Longest Common Subsequence
+[ ] DP06. Longest Increasing Subsequence
+[ ] DP07. 0/1 Knapsack Basics
+[ ] DP08. Grid Unique Paths
+
+==================================================
+DAILY PROGRESS LOG
+==================================================
+
+Date:
+Question IDs:
+Concept Learned:
+Approach Used:
+Time Complexity:
+Space Complexity:
+Solved Without Help? Yes / No
+Mistakes / Edge Cases:
+Revision Date:
+
+==================================================
+REVISION RULE
+==================================================
+
+1. Revise a question if you needed a hint or made a logical mistake.
+2. Re-solve important questions without looking at old code.
+3. Explain the approach aloud as if answering an interviewer.
+4. Practise edge cases and complexity analysis.
+5. Move to Medium only after the Easy pattern is understood.
+6. Advanced problems are selective, not mandatory for every topic.

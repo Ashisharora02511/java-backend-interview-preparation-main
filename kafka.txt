@@ -1,0 +1,33 @@
+What is Kafka?
+Kafka is a distributed event streaming platform used for:
+- asynchronous communication
+- event-driven architecture
+- high-throughput data processing
+- decoupling microservices
+- What is a Topic?
+ A topic is a logical category where Kafka stores messages/events.
+- What is a Partition?
+ A topic is divided into partitions.
+- What is an Offset?
+  Every record in a partition gets an offset.Offset identifies the position of a record within that partition.
+- Producer vs Consumer
+  Producer: Publishes records to Kafka.
+- Consumer: Reads records from Kafka.
+- . What is Consumer Group?
+  Consumers within the same consumer group share the work.
+But another consumer group can independently read the same messages:
+Within one consumer group: one partition is assigned to at most one consumer at a time.
+- What happens if consumers > partitions?
+ 3 partitions
+5 consumers:Only 3 consumers can actively consume partitions at that moment.
+P0 → C1
+P1 → C2
+P2 → C3
+
+C4 → idle
+C5 → idle
+- What happens if a consumer dies?:Kafka detects the failure and triggers a consumer group rebalance.
+- Does Kafka guarantee message ordering?
+  Kafka guarantees ordering within a partition.
+  Kafka guarantees ordering within a partition, not across multiple partitions."
+- How do you maintain order for the same customer/order?:Use the same partition key.

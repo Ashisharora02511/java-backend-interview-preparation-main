@@ -1,0 +1,192 @@
+====================JS===================================================
+Event Loop:
+JavaScript is single-threaded, so it executes JavaScript code using a call stack. For asynchronous operations, the runtime uses Web APIs and queues. The event loop continuously checks whether the call stack is empty and then moves eligible callbacks from the queues to the call stack.
+Promise vs setTimeout:
+ console.log("A");
+
+setTimeout(() => {
+    console.log("B");
+}, 0);
+
+Promise.resolve().then(() => {
+    console.log("C");
+});
+
+console.log("D");
+- First synchronous code:console.log("A") → A,console.log("D") → D
+- then goes to the Microtask Queue.Promise.then().
+
+- setTimeout() callback goes to the Macrotask/Task Queue.
+- The event loop gives priority to microtasks after the current synchronous execution finishes.
+
+
+- What is a Promise?
+- A Promise represents the eventual success or failure of an asynchronous operation. It has three states: pending, fulfilled, and rejected.
+const promise=fetch("/users");
+promise.then(response=> response.json())
+- async/await
+Instead of:
+- getUser()
+    .then(user => getOrders(user.id))
+    .then(orders => console.log(orders));
+	-------------------------------
+	async function getData() {
+    const user = await getUser();
+    const orders = await getOrders(user.id);
+
+    console.log(orders);
+}
+
+- Does await block JavaScript?:Not the entire JavaScript thread.
+- await pauses the execution of that async function until the Promise settles; the runtime can continue handling other work.
+- Promise.all() — very important
+- const [user, orders, products] =
+    await Promise.all([
+        getUser(),
+        getOrders(),
+        getProducts()
+    ]);
+- They can progress concurrently rather than waiting for each call sequentially.
+- If one Promise rejects, Promise.all() rejects.
+- Promise.all() vs Promise.allSettled()
+- Promise.all(): Promise.all([p1, p2, p3]): One failure → overall Promise rejects.
+- Promise.allSettled():Promise.allSettled([p1, p2, p3]):Waits for all and tells you the status of each.
+- Useful when you want:
+   p1 → success
+   p2 → failed
+   p3 → success
+- Promise.race() vs Promise.any()
+- Promise.race():First Promise to settle wins:fulfilled OR rejected
+- Promise.any():First Promise to fulfill wins.:It ignores rejected Promises until all have rejected.
+- Scope:where a variable can be accessed.
+- Global scope: 
+ex: let name = "Ashish";
+
+function test() {
+    console.log(name);
+}
+- name is accessible inside test() because it is in the outer/global scope.
+- Function scope: ex: 
+function test() {
+    var x = 10;
+}
+
+console.log(x); // Error
+- var is function-scoped.
+- Block scope:
+ex: 
+if (true) {
+    let x = 10;
+    const y = 20;
+}
+
+console.log(x); // Error
+- let and const are hoisted conceptually, but you cannot access them before initialization because of the Temporal Dead Zone.
+- Hoisting:
+ex: console.log(a);
+
+var a = 10; output undefined
+
+- But let?
+ex: console.log(a);
+let a = 10;ReferenceError
+- Because a exists in the scope but is in the Temporal Dead Zone (TDZ) until its declaration is initialized.
+- Temporal Dead Zone:The Temporal Dead Zone is the period between entering a scope where a let or const variable is declared and the point where that variable is initialized. Accessing it during this period throws a ReferenceError."
+- Closure:
+  A closure happens when an inner function remembers and can access variables from its outer lexical scope even after the outer function has finished executing.
+  - function outer(){
+      let count=0;
+	  
+	  return function inner(){
+	     count++;
+		 console.log(count);
+	  }
+  
+  
+  }
+const counter = outer();	
+counter();1
+counter();2
+counter();3
+- But outer() already finished!
+- Classic closure interview question
+- for (var i = 0; i < 3; i++) {
+    setTimeout(() => {
+        console.log(i);
+    }, 1000);
+}output 3,3,3
+ beacuse :var is function-scoped, so all callbacks refer to the same i.
+ - for (let i = 0; i < 3; i++) {
+    setTimeout(() => {
+        console.log(i);
+    }, 1000);
+} output : 0,1,2 :Because let creates a separate block-scoped binding for each iteration.
+- this keyword:The value of this depends on how a normal function is called.
+- Arrow function and this: They do not have their own this.They inherit this from the surrounding lexical scope.
+- call, apply, bind
+- call(): arguments individually:greet.call(user, "Delhi");
+- apply():Arguments as an array.
+- bind():bind() returns a new function with the specified this binding.
+What is React?:React is a JavaScript library for building user interfaces using reusable components. It uses a declarative programming model and efficiently updates the UI through reconciliation and the virtual DOM.
+- What is a Component?:A component is a reusable piece of UI.
+function User(){
+
+return <h1>Hello Word</h1>
+}
+- What are Props?:function Parent() {
+    return <User name="Ashish" />;
+}
+function User({ name }) {
+    return <h1>Hello {name}</h1>;
+}
+Props are read-only from the child's perspective.
+
+- What is State?:State is data managed by a component that can change over time and trigger a re-render.
+
+- useState():const [count,setCount]=useState(0);
+- What causes a React component to re-render?
+- Its state changes
+Its parent re-renders
+A context value it consumes changes
+Its subscribed external store data changes
+- What is Virtual DOM?:"React maintains an in-memory representation of the UI and uses reconciliation to determine what changes need to be applied to the actual DOM."
+- What is useEffect()?:useEffect is used to synchronize a component with external systems and perform side effects.
+- What is useRef()?:useRef gives you a mutable value that persists across renders without causing a re-render when .current changes.
+- useMemo: memoizes a computed value.It can avoid recalculating the value when dependencies haven't changed.
+- useCallback():useCallback memoizes a function reference.
+- What is React.memo()It memoizes a functional component so React can skip rendering it when its props haven't changed according to its comparison.
+- What is Debouncing?:Wait until the user stops typing for a certain amount of time, then execute the function.
+- What is Throttling?:Throttling limits how frequently a function can execute during a continuous stream of events.
+- Large List — 100,000 records:A good solution is virtualization/windowing.
+- Error Boundary:An Error Boundary catches certain errors during rendering/lifecycle of descendant components and lets you show fallback UI.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
